@@ -1,0 +1,43 @@
+.todo__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0.4rem 0;
+  padding: 0.6rem 1rem;
+  background: $secondary;
+  border-radius: 6px;
+
+  &--completed {
+    background: $primary;
+  }
+
+  &-checkbox input {
+    padding: 0.6rem;
+    margin-top: 0;
+  }
+
+  &--content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 1rem;
+
+    &-completed {
+      text-decoration: line-through;
+    }
+
+    i {
+      display: flex;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &:hover {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.Icon-check--active {
+  color: red;
+}
