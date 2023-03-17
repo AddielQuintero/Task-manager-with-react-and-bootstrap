@@ -1,0 +1,20 @@
+.todo__create {
+  background-color: #4C6793;
+  border: none;
+  color: $pastel;
+  &:hover {
+    color: white;
+    background-color: #4C6781;
+    border-color: #4C6781;
+  }
+
+  i {
+    font-size: 1.5rem;
+  }
+}
+
+.btn:first-child:active {
+  color: white;
+  background-color: #4C6781;
+  border-color: #4C6781;
+}
