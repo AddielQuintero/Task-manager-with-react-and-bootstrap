@@ -23,6 +23,20 @@ function App() {
     setValue(event.target.value)
   }
 
+  const handleAddTask = () => {
+    console.log('adicionando new task')
+  }
+
+  const handleCompleteTodo = (text) => {
+    const todoAux = [...todos]
+    todoAux.find((todo) => {
+      if (todo.text === text) {
+        todo.completed = !todo.completed
+      }
+    })
+    setTodos(todoAux)
+  }
+
   let todosSearch = []
   if (!value.length >= 1) {
     todosSearch = todos
@@ -30,10 +44,6 @@ function App() {
     todosSearch = todos.filter((todo) => {
       return todo.text.toLowerCase().includes(value.toLowerCase())
     })
-  }
-
-  const handleAddTask = () => {
-    console.log('adicionando new task')
   }
 
   return (
@@ -49,7 +59,11 @@ function App() {
           <Col sm={12}>
             <TodoList>
               {todosSearch.map((todo) => (
-                <TodoItem key={todo.text} todo={todo} />
+                <TodoItem
+                  key={todo.text}
+                  todo={todo}
+                  onComplete={handleCompleteTodo}
+                />
               ))}
             </TodoList>
           </Col>

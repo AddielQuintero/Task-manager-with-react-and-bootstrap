@@ -22,7 +22,12 @@ function TodoItem(props) {
 
   return (
     <li className={`todo__item ${check ? 'todo__item--completed' : ''}`}>
-      <TodoCheckbox completed={check} text={text} handleChange={handleCheck} />
+      <TodoCheckbox
+        completed={check}
+        text={text}
+        handleChange={handleCheck}
+        onClick={()=>onComplete(text)}
+      />
 
       <div className="todo__item--content">
         <p className={check ? 'todo__item--content-completed' : null}>{text}</p>

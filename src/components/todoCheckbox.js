@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form'
 
 function TodoCheckbox(props) {
   // console.log(props)
-  const { text, completed, handleChange } = props
+  const { text, completed, handleChange, onClick } = props
   // console.log(`complete en Checkbox ${completed}`)
   const replaceSpace = (str) => {
     return str.replace(/\s+/g, '-')
@@ -16,6 +16,7 @@ function TodoCheckbox(props) {
           id={replaceSpace(text)}
           checked={completed}
           onChange={handleChange}
+          onClick={onClick}
         />
       </div>
     </>
