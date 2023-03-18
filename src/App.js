@@ -17,6 +17,21 @@ const api = [
 function App() {
   const [todos, setTodos] = useState(api)
 
+  const [value, setValue] = useState('')
+
+  const handleChangeInput = (event) => {
+    setValue(event.target.value)
+  }
+
+  let todosSearch = []
+  if (!value.length >= 1) {
+    todosSearch = todos
+  } else {
+    todosSearch = todos.filter((todo) => {
+      return todo.text.toLowerCase().includes(value.toLowerCase())
+    })
+  }
+
   const handleAddTask = () => {
     console.log('adicionando new task')
   }
@@ -28,12 +43,12 @@ function App() {
           <Col sm={12} className="d-flex align-items-center">
             <TodoCounter todo={todos} />
           </Col>
-          <Col sm={12}>
-            <TodoSearch />
+          <Col sm={12} className="py-2">
+            <TodoSearch value={value} handleChange={handleChangeInput} />
           </Col>
           <Col sm={12}>
             <TodoList>
-              {todos.map((todo) => (
+              {todosSearch.map((todo) => (
                 <TodoItem key={todo.text} todo={todo} />
               ))}
             </TodoList>

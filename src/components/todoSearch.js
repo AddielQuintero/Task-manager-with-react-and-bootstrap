@@ -1,7 +1,15 @@
-function TodoSearch() {
+function TodoSearch(props) {
+    // console.log(props)
+  const { value, handleChange } = props
+
   return (
     <>
-      <input type="text" placeholder="Search Task" />
+      <input
+        type="text"
+        value={value}
+        placeholder="Search Task"
+        onChange={handleChange}
+      />
     </>
   )
 }
