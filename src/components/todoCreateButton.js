@@ -1,8 +1,14 @@
 import Button from 'react-bootstrap/Button'
 
-function TodoCreateButton() {
+function TodoCreateButton(props) {
+  const { onClick } = props
+  // console.log(props)
+  const add = () => {
+    console.log('adicionando new task')
+  }
+
   return (
-    <Button className="rounded-pill">
+    <Button className="todo__create rounded-circle" onClick={onClick}>
       <i className="bi bi-plus"></i>
     </Button>
   )

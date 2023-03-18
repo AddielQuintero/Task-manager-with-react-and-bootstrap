@@ -17,6 +17,10 @@ const api = [
 function App() {
   const [todos, setTodos] = useState(api)
 
+  const handleAddTask = () => {
+    console.log('adicionando new task')
+  }
+  
   return (
     <React.Fragment>
       <Container className="todo__container py-5">
@@ -32,8 +36,8 @@ function App() {
               <TodoItem />
             </TodoList>
           </Col>
-          <Col sm={12}>
-            <TodoCreateButton />
+          <Col sm={12} className="d-flex flex-column align-items-end pt-4">
+            <TodoCreateButton onClick={handleAddTask} />
           </Col>
         </Row>
       </Container>
