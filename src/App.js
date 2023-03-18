@@ -28,10 +28,22 @@ function App() {
   }
 
   const handleCompleteTodo = (text) => {
+    // const todoIndex = todos.findIndex(todo => todo.text === text);
+    // todoIndex >= 0 && (newTodos[todoIndex].completed = !newTodos[todoIndex].completed)
     const todoAux = [...todos]
     todoAux.find((todo) => {
       if (todo.text === text) {
         todo.completed = !todo.completed
+      }
+    })
+    setTodos(todoAux)
+  }
+
+  const handleDeleteTodo = (text) => {
+    const todoAux = [...todos]
+    todoAux.map((todo, index) => {
+      if (index > -1 && todo.text === text) {
+        todoAux.splice(index, 1)
       }
     })
     setTodos(todoAux)
@@ -63,6 +75,7 @@ function App() {
                   key={todo.text}
                   todo={todo}
                   onComplete={handleCompleteTodo}
+                  onDelete={handleDeleteTodo}
                 />
               ))}
             </TodoList>

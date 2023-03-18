@@ -13,7 +13,7 @@ $secondary: #8ea7e9;
 $pink: #e5e0ff;
 $pastel: #fff2f2;
 $primary-dark: #243844;
-$secondary-dark: #4C6793;
+$secondary-dark: #4c6793;
 
 // $primary: #6096B4;
 // $secondary: #93BFCF;
@@ -37,7 +37,8 @@ body {
 
 @media (min-width: 768px) {
   .todo__row {
-    width: 50%;
+    // width: 50%;
+    width: 23rem;
     // background-color: #ECF2FF;
   }
 }

@@ -8,7 +8,7 @@ function TodoCreateButton(props) {
   }
 
   return (
-    <Button className="todo__create rounded-circle" onClick={onClick}>
+    <Button className="todo__button rounded-circle" onClick={onClick}>
       <i className="bi bi-plus"></i>
     </Button>
   )

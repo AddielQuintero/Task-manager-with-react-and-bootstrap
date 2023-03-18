@@ -26,12 +26,12 @@ function TodoItem(props) {
         completed={check}
         text={text}
         handleChange={handleCheck}
-        onClick={()=>onComplete(text)}
+        onClick={() => onComplete(text)}
       />
 
       <div className="todo__item--content">
         <p className={check ? 'todo__item--content-completed' : null}>{text}</p>
-        <span>
+        <span onClick={() => onDelete(text)}>
           <i className="bi bi-trash"></i>
         </span>
       </div>

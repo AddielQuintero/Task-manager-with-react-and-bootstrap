@@ -16,7 +16,7 @@ function TodoCounter(props) {
       <Col xs={6} className="d-flex justify-content-end align-items-end px-0">
         <span>{`${max - Now} task left`}</span>
       </Col>
-      <Col className="todo__progress-bar px-0">
+      <Col className="todo__progress-bar px-0 pt-1">
         <TodoProgressBar max={max} now={Now} />
       </Col>
     </Row>
