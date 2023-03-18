@@ -20,7 +20,7 @@ function App() {
   const handleAddTask = () => {
     console.log('adicionando new task')
   }
-  
+
   return (
     <React.Fragment>
       <Container className="todo__container py-5">
@@ -33,7 +33,9 @@ function App() {
           </Col>
           <Col sm={12}>
             <TodoList>
-              <TodoItem />
+              {todos.map((todo) => (
+                <TodoItem key={todo.text} todo={todo} />
+              ))}
             </TodoList>
           </Col>
           <Col sm={12} className="d-flex flex-column align-items-end pt-4">
