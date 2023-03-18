@@ -8,9 +8,9 @@ function TodoCreateButton(props) {
   }
 
   return (
-    <Button className="todo__button rounded-circle" onClick={onClick}>
-      <i className="bi bi-plus"></i>
-    </Button>
+      <Button className="todo__button rounded-circle " onClick={onClick}>
+        <i className="bi bi-plus"></i>
+      </Button>
   )
 }
 export { TodoCreateButton }

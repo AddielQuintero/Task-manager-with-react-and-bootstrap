@@ -1,10 +1,11 @@
-input {
+.todo__search {
   width: 100%;
   padding: 0.8rem;
   border-radius: 6px;
   border: none;
-  &:focus, &:active{
-    box-shadow: 0 0 5px rgb(142, 167, 233);
+  &:focus,
+  &:active {
+    box-shadow: 0 0 1px $indigo;
     outline: 0;
   }
 }
