@@ -1,10 +1,12 @@
 .todo__progress-bar {
   .progress {
     background-color: transparent;
-    border: 1px solid $indigo;
+    border: 1px solid $green;
+    // border: 1px solid $indigo;
 
     .progress-bar {
-      background-color: $indigo;
+      // background-color: $indigo;
+      background-color: $green;
       margin: 0.1rem;
       border-radius: 0.375rem;
     }
