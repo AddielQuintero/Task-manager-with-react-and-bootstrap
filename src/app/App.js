@@ -1,15 +1,9 @@
 import { useState } from 'react'
+import { useLocaStorage } from '../hooks/useLocalStorage'
 import { AppUi } from './AppUI'
 
-const api = [
-  { id: 1, text: 'Read for 1 hour', completed: false },
-  { id: 2, text: 'Watering plants', completed: true },
-  { id: 3, text: 'Making the bed', completed: true },
-  { id: 4, text: 'Throw trash', completed: true },
-]
-
 function App() {
-  const [todos, setTodos] = useState(api)
+  const [todos, updateTodos] = useLocaStorage('API_1', [])
 
   const [value, setValue] = useState('')
 
@@ -30,7 +24,7 @@ function App() {
         todo.completed = !todo.completed
       }
     })
-    setTodos(todoAux)
+    updateTodos(todoAux)
   }
 
   const handleDeleteTodo = (id) => {
@@ -40,7 +34,7 @@ function App() {
         todoAux.splice(index, 1)
       }
     })
-    setTodos(todoAux)
+    updateTodos(todoAux)
   }
 
   let todosSearch = []

@@ -5,7 +5,8 @@
   border: none;
   &:focus,
   &:active {
-    box-shadow: 0 0 1px $indigo;
+    // box-shadow: 0 0 1px $indigo;
+    box-shadow: 0 0 1px $green;
     outline: 0;
   }
 }
