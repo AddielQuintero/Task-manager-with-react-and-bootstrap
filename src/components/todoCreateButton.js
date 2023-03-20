@@ -1,16 +1,14 @@
+import { useContext } from 'react'
+import { TodoContext } from '../contexts'
 import Button from 'react-bootstrap/Button'
 
-function TodoCreateButton(props) {
-  const { onClick } = props
-  // console.log(props)
-  const add = () => {
-    console.log('adicionando new task')
-  }
+function TodoCreateButton() {
+  const { handleAddTask } = useContext(TodoContext)
 
   return (
-      <Button className="todo__button rounded-circle " onClick={onClick}>
-        <i className="bi bi-plus"></i>
-      </Button>
+    <Button className="todo__button rounded-circle " onClick={handleAddTask}>
+      <i className="bi bi-plus"></i>
+    </Button>
   )
 }
 export { TodoCreateButton }

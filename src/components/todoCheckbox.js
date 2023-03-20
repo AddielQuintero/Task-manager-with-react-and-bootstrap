@@ -1,19 +1,14 @@
 import Form from 'react-bootstrap/Form'
 
 function TodoCheckbox(props) {
-  // console.log(props)
-  const { text, completed, handleChange, onClick } = props
-  // console.log(`complete en Checkbox ${completed}`)
-  const replaceSpace = (str) => {
-    return str.replace(/\s+/g, '-')
-  }
+  const { id, completed, handleChange, onClick } = props
 
   return (
     <>
-      <div key={`key-${text}`} className="todo__item-checkbox">
+      <div key={`key-${id}`} className="todo__item-checkbox">
         <Form.Check
           type="checkbox"
-          id={replaceSpace(text)}
+          id={id}
           checked={completed}
           onChange={handleChange}
           onClick={onClick}

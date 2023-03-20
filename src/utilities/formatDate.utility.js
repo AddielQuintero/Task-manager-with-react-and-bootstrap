@@ -1,4 +1,4 @@
-function TodoCurrentDate() {
+function FormatDate() {
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const options = {
     weekday: 'long',
@@ -18,4 +18,4 @@ function TodoCurrentDate() {
   )
 }
 
-export { TodoCurrentDate }
+export { FormatDate }
