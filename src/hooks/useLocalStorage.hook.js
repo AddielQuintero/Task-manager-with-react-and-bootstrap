@@ -1,13 +1,9 @@
 import { useState } from 'react'
-
-const api = [
-  { id: 1, text: 'Read for 1 hour', completed: false },
-  { id: 2, text: 'Watering plants', completed: true },
-  { id: 3, text: 'Making the bed', completed: true },
-  { id: 4, text: 'Throw trash', completed: true },
-]
+import { API } from '../services'
 
 function useLocaStorage(itenName, initialValue) {
+  const api = API()
+
   let localStorageItem = localStorage.getItem(itenName)
   let parseItem
 
@@ -16,7 +12,7 @@ function useLocaStorage(itenName, initialValue) {
     // localStorage.setItem(itenName, JSON.stringify(initialValue))
     // parseItem = initialValue
 
-    /** Start app with values */
+    /** Start app with default values */
     localStorage.setItem(itenName, JSON.stringify(api))
     parseItem = JSON.parse(localStorage.getItem(itenName))
   } else {
