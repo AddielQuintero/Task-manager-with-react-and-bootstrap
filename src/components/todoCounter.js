@@ -1,12 +1,13 @@
+import { useContext } from 'react'
 import { Row, Col } from 'react-bootstrap'
+import { TodoContext } from '../contexts'
 import { TodoProgressBar } from './todoProgressBar'
-import { TodoCurrentDate } from './todoCurrentDate'
+import { FormatDate } from '../utilities'
 
-function TodoCounter(props) {
-  // console.log(props)
-  const { todo } = props
-  const max = todo.length
-  const Now = todo.filter((element) => element.completed).length
+function TodoCounter() {
+  const { todos } = useContext(TodoContext)
+  const max = todos.length
+  const now = todos.filter((element) => element.completed).length
 
   return (
     <Row className="todo__counter w-100 mx-0 mb-2">
@@ -18,11 +19,11 @@ function TodoCounter(props) {
         xs={6}
         className="d-flex flex-column justify-content-between align-items-end px-0"
       >
-        <TodoCurrentDate />
-        <span>{`${max - Now} task left`}</span>
+        <FormatDate />
+        <span>{`${max - now} task left`}</span>
       </Col>
       <Col className="todo__progress-bar px-0 pt-1">
-        <TodoProgressBar max={max} now={Now} />
+        <TodoProgressBar max={max} now={now} />
       </Col>
     </Row>
   )

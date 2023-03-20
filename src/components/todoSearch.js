@@ -1,6 +1,8 @@
-function TodoSearch(props) {
-  // console.log(props)
-  const { value, handleChange } = props
+import { useContext } from 'react'
+import { TodoContext } from '../contexts'
+
+function TodoSearch() {
+  const { value, handleChangeInput } = useContext(TodoContext)
 
   return (
     <>
@@ -9,7 +11,7 @@ function TodoSearch(props) {
         type="text"
         value={value}
         placeholder="Search Task"
-        onChange={handleChange}
+        onChange={handleChangeInput}
       />
     </>
   )
