@@ -1,14 +1,21 @@
 function TodoCurrentDate() {
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const options = {
     weekday: 'long',
     month: 'long',
     day: 'numeric',
-    timeZone: 'UTC',
+    // year: 'numeric',
+    // hour: 'numeric',
+    // minute: 'numeric',
+    // second: 'numeric',
+    timeZone: timeZone,
   }
-
-  const fechaActual = new Date().toLocaleDateString('en-US', options)
-
-  return <p>{fechaActual}</p>
+  const fechaActual = new Date().toLocaleString('en-US', options)
+  return (
+    <div>
+      <p>{fechaActual}</p>
+    </div>
+  )
 }
 
 export { TodoCurrentDate }

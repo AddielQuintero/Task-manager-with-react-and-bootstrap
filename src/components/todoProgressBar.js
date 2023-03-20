@@ -6,7 +6,7 @@ function TodoProgressBar(props) {
   let percent = Math.round((now / max) * 100) || 0
   return (
     <>
-      <ProgressBar className="" max={max} now={now} />
+      <ProgressBar max={max || 1} now={now} />
       <p>{`${percent}% Completed`}</p>
     </>
   )

@@ -1,8 +1,15 @@
-.form-check-input:checked {
-    background-color: $indigo !important;
-    border: 0;
+.todo__item-checkbox > div {
+  display: flex;
+
+  .form-check-input {
+    border: none;
+    &:checked {
+      // background-color: $indigo !important;
+      background-color: $green !important;
+      border: none;
+    }
   }
-  
+
   .form-check-input:focus,
   .label::after,
   label.form-check-label:focus,
@@ -10,6 +17,8 @@
   .form-check-input:not(:disabled):not(.disabled):active:focus {
     color: black;
     outline: 0;
-    border: 0;
-    box-shadow: 0 0 0 0.1rem $indigo !important;
+    border: none;
+    // box-shadow: 0 0 0 0.1rem $indigo !important;
+    box-shadow: 0 0 0 0.8px $green !important;
   }
+}

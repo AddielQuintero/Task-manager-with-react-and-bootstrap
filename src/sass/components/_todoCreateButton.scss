@@ -1,12 +1,15 @@
 .todo__button {
   padding: 0.75rem;
-  background-color: $indigo;
+  // background-color: $indigo;
+  background-color: $green;
   border: none;
-  color: $pastel;
+  color: $light;
   &:hover {
-    color: $pastel;
-    background-color: $deepBlue;
-    border-color: $deepBlue;
+    color: $light;
+    background-color: $deepGreen;
+    border-color: $deepGreen;
+    // background-color: $deepIndigo;
+    // border-color: $deepIndigo;
   }
 
   i {
@@ -16,7 +19,9 @@
 }
 
 .btn:first-child:active {
-  color: $pastel;
-  background-color: $indigo;
-  border-color: $indigo;
+  color: $light;
+  background-color: $green;
+  border-color: $green;
+  // background-color: $indigo;
+  // border-color: $indigo;
 }
