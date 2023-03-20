@@ -1,33 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { TodoCounter } from '../components/todoCounter'
-import { TodoSearch } from '../components/todoSearch'
-import { TodoList } from '../components/todoList'
-import { TodoItem } from '../components/todoItem'
-import { TodoCreateButton } from '../components/todoCreateButton'
+import { TodoContext } from '../contexts'
+import { TodoCounter } from '../components'
+import { TodoSearch } from '../components'
+import { TodoList } from '../components'
+import { TodoItem } from '../components'
+import { TodoCreateButton } from '../components'
 
-function AppUi(props) {
-  const {
-    todos,
-    value,
-    handleChangeInput,
-    todosSearch,
-    handleCompleteTodo,
-    handleDeleteTodo,
-    handleAddTask,
-  } = props
+function AppUi() {
+  const { todosSearch, handleCompleteTodo, handleDeleteTodo } =
+    useContext(TodoContext)
+
   return (
     <React.Fragment>
       <Container className="todo__container py-5">
         <Row className="todo__row m-auto py-3 align-content-start">
           <Col sm={12} className="d-flex align-items-center">
-            <TodoCounter todo={todos} />
+            <TodoCounter />
           </Col>
           <Col sm={12} className="py-2">
-            <TodoSearch value={value} handleChange={handleChangeInput} />
+            <TodoSearch />
           </Col>
           <Col sm={12} className="overflow-hidden h-50">
             <TodoList>
+              {!todosSearch.length && (
+                <li className="new__task">¡Add a new task!</li>
+              )}
               {todosSearch.map((todo) => (
                 <TodoItem
                   key={todo.id}
@@ -42,7 +40,7 @@ function AppUi(props) {
             sm={12}
             className="position-absolute bottom-0 d-flex justify-content-end pt-4 pb-3"
           >
-            <TodoCreateButton onClick={handleAddTask} />
+            <TodoCreateButton />
           </Col>
         </Row>
       </Container>

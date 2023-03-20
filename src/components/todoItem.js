@@ -2,14 +2,10 @@ import { useState } from 'react'
 import { TodoCheckbox } from './todoCheckbox'
 
 function TodoItem(props) {
-  // console.log(props)
   const { todo, onComplete, onDelete } = props
-  // console.log(todo)
-  const { id, text, completed } = todo
-  // console.log(`complete en todoItem ${completed}`)
+  const { id, description, completed } = todo
 
   const [check, setCheck] = useState(completed)
-  // console.log(`check  en todoItem ${check}`)
 
   const handleCheck = () => {
     setCheck(!check)
@@ -18,14 +14,16 @@ function TodoItem(props) {
   return (
     <li className={`todo__item ${check ? 'todo__item--completed' : ''}`}>
       <TodoCheckbox
+        id={id}
         completed={check}
-        text={text}
         handleChange={handleCheck}
         onClick={() => onComplete(id)}
       />
 
       <div className="todo__item--content">
-        <p className={check ? 'todo__item--content-completed' : null}>{text}</p>
+        <p className={check ? 'todo__item--content-completed' : null}>
+          {description}
+        </p>
         <span onClick={() => onDelete(id)}>
           <i className="bi bi-trash"></i>
         </span>
