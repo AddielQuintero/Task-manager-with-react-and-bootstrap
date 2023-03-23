@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { TodoCheckbox } from './todoCheckbox'
+import { CustomCheckbox } from '../components'
 
-function TodoItem(props) {
-  const { todo, onComplete, onDelete } = props
-  const { id, description, completed } = todo
-
+function TaskItem(props) {
+  const { task, onComplete, onDelete } = props
+  const { id, description, completed } = task
   const [check, setCheck] = useState(completed)
 
   const handleCheck = () => {
@@ -12,16 +11,17 @@ function TodoItem(props) {
   }
 
   return (
-    <li className={`todo__item ${check ? 'todo__item--completed' : ''}`}>
-      <TodoCheckbox
+    <li className={`task__item ${check ? 'task__item--completed' : ''}`}>
+      <CustomCheckbox
+        type="checkbox"
         id={id}
         completed={check}
         handleChange={handleCheck}
         onClick={() => onComplete(id)}
       />
 
-      <div className="todo__item--content">
-        <p className={check ? 'todo__item--content-completed' : null}>
+      <div className="task__item--content">
+        <p className={check ? 'task__item--content-completed' : null}>
           {description}
         </p>
         <span onClick={() => onDelete(id)}>
@@ -32,4 +32,4 @@ function TodoItem(props) {
   )
 }
 
-export { TodoItem }
+export { TaskItem }

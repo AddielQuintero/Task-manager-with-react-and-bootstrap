@@ -1,20 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { API } from '../services'
 
-function useLocaStorage(itenName, initialValue) {
+function useLocalStorage(itemName, initialValue) {
   const api = API()
 
-  let localStorageItem = localStorage.getItem(itenName)
+  let localStorageItem = localStorage.getItem(itemName)
   let parseItem
 
   if (!localStorageItem) {
     /** Start the empty app */
-    // localStorage.setItem(itenName, JSON.stringify(initialValue))
+    // localStorage.setItem(itemName, JSON.stringify(initialValue))
     // parseItem = initialValue
 
     /** Start app with default values */
-    localStorage.setItem(itenName, JSON.stringify(api))
-    parseItem = JSON.parse(localStorage.getItem(itenName))
+    localStorage.setItem(itemName, JSON.stringify(api))
+    parseItem = JSON.parse(localStorage.getItem(itemName))
   } else {
     parseItem = JSON.parse(localStorageItem)
   }
@@ -22,11 +22,11 @@ function useLocaStorage(itenName, initialValue) {
   const [item, setItem] = useState(parseItem)
 
   const saveItem = (newItem) => {
-    localStorage.setItem(itenName, JSON.stringify(newItem))
+    localStorage.setItem(itemName, JSON.stringify(newItem))
     setItem(newItem)
   }
 
   return [item, saveItem]
 }
 
-export { useLocaStorage }
+export { useLocalStorage }

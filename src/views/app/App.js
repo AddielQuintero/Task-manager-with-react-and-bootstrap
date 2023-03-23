@@ -1,11 +1,11 @@
-import { TodoProvider } from '../contexts'
+import { TaskProvider } from '../../contexts'
 import { AppUi } from './AppUI'
 
 function App() {
   return (
-    <TodoProvider>
+    <TaskProvider>
       <AppUi />
-    </TodoProvider>
+    </TaskProvider>
   )
 }
 
