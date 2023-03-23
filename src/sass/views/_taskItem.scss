@@ -1,4 +1,4 @@
-.todo__item {
+.task__item {
   display: flex;
   align-items: center;
   width: 100%;
@@ -22,9 +22,15 @@
     align-items: center;
     width: 100%;
     padding-left: 1rem;
+    padding-left: 0.5rem;
 
     &-completed {
       text-decoration: line-through;
+    }
+
+    p {
+      word-break: break-word;
+      word-wrap: break-word;
     }
 
     i {

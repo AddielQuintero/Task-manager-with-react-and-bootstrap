@@ -10,10 +10,10 @@ function FormatDate() {
     // second: 'numeric',
     timeZone: timeZone,
   }
-  const fechaActual = new Date().toLocaleString('en-US', options)
+  const currentDate = new Date().toLocaleString('en-US', options)
   return (
     <div>
-      <p>{fechaActual}</p>
+      <p>{currentDate}</p>
     </div>
   )
 }

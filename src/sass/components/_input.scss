@@ -1,4 +1,4 @@
-.todo__search {
+.custom__input {
   width: 100%;
   padding: 0.8rem;
   border-radius: 6px;
@@ -6,7 +6,6 @@
   background-color: #f3f6fc;
   &:focus,
   &:active {
-    // box-shadow: 0 0 1px $indigo;
     box-shadow: 0 0 1px $green;
     outline: 0;
   }
