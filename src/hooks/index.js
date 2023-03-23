@@ -1,1 +1,2 @@
-export { useLocaStorage } from './useLocalStorage.hook'
+export * from './useLocalStorage.hook'
+export * from './useModal.hook'

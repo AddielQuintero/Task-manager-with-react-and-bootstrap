@@ -17,7 +17,8 @@ $primary: #d8cded;
 $secondary: #dfd5f0;
 $green: #19a7ce;
 $deepGreen: #1696b9;
-$pink: #ebc7e6;
+$lightGreen: #75cae1;
+$pink: #f3f6fc;
 $light: #e5e0ff;
 $midnight: #243844;
 $grey: #33333380;
@@ -29,21 +30,25 @@ $grey: #33333380;
 }
 
 body {
+  font-family: 'Oswald', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: rgb(198,211,244);
-  // background: linear-gradient(90deg, rgba(229, 224, 255, 1) 0%, rgba(142, 167, 233, 1) 100%);
-  background: linear-gradient(90deg, rgba(229,224,255,1) 0%, rgba(164,184,237,1) 100%);
+  background: rgb(198, 211, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(229, 224, 255, 1) 0%,
+    rgba(164, 184, 237, 1) 100%
+  );
   color: $midnight;
-  // font-size: 15px;
 }
 
-.todo__row {
-  // height: 560px;
+.task__row {
   height: 580px;
   position: relative;
 
