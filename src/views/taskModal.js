@@ -25,9 +25,14 @@ const TaskModal = () => {
   }
 
   return (
-    <CustomModal className='task__modal' show={show} onHide={onClose} title="Add new task">
+    <CustomModal
+      className="task__modal"
+      show={show}
+      onHide={onClose}
+      title="Add new task"
+    >
       <React.Fragment>
-        <Form onSubmit={onSubmit} className="test">
+        <Form onSubmit={onSubmit}>
           <CustomInput
             className="input__add-task mb-3"
             type="text"
