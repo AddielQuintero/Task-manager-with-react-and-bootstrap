@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { API } from '../services'
 
-function useLocalStorage(itemName, initialValue) {
+export const useLocalStorage = (itemName, initialValue) => {
   const api = API()
 
   let localStorageItem = localStorage.getItem(itemName)
@@ -28,5 +28,3 @@ function useLocalStorage(itemName, initialValue) {
 
   return [item, saveItem]
 }
-
-export { useLocalStorage }

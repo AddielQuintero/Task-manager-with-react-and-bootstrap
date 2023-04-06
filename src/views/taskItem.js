@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CustomCheckbox } from '../components'
 
-function TaskItem(props) {
+export const TaskItem = (props) => {
   const { task, onComplete, onDelete } = props
   const { id, description, completed } = task
   const [check, setCheck] = useState(completed)
@@ -13,6 +13,7 @@ function TaskItem(props) {
   return (
     <li className={`task__item ${check ? 'task__item--completed' : ''}`}>
       <CustomCheckbox
+        className="custom__checkbox"
         type="checkbox"
         id={id}
         completed={check}
@@ -32,4 +33,4 @@ function TaskItem(props) {
   )
 }
 
-export { TaskItem }
+// export { TaskItem }

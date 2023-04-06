@@ -1,11 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import { CustomModal, CustomInput, CustomButton } from '../components'
-import { TaskContext } from '../contexts'
 
-const TaskModal = () => {
-  const { show, handleAddTask, handleClose } = useContext(TaskContext)
-
+export const TaskModal = ({ show, handleAddTask, handleClose }) => {
   const [newValue, setNewValue] = useState('')
 
   const onSubmit = (event) => {
@@ -62,5 +59,3 @@ const TaskModal = () => {
     </CustomModal>
   )
 }
-
-export { TaskModal }

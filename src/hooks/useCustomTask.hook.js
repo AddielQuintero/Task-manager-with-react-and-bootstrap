@@ -1,12 +1,14 @@
-import { createContext, useState } from 'react'
-import { useLocalStorage } from '../hooks'
+import { useState } from 'react'
+import { useLocalStorage } from '.'
 
-const TaskContext = createContext()
-
-function TaskProvider(props) {
+export const useTask = () => {
   const [tasks, updateTasks] = useLocalStorage('API_1', [])
 
   const [value, setValue] = useState('')
+
+  const max = tasks.length
+  const now = tasks.filter((element) => element.completed).length
+  let percent = Math.round((now / max) * 100) || 0
 
   const handleChangeInput = (event) => {
     setValue(event.target.value)
@@ -31,8 +33,6 @@ function TaskProvider(props) {
   }
 
   const handleCompleteTask = (id) => {
-    // const taskIndex = tasks.findIndex(task => task.text === text);
-    // taskIndex >= 0 && (newTasks[taskIndex].completed = !newTasks[taskIndex].completed)
     const taskAux = [...tasks]
     taskAux.find((task) => {
       if (task.id === id) {
@@ -67,25 +67,20 @@ function TaskProvider(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  return (
-    <TaskContext.Provider
-      value={{
-        tasks,
-        value,
-        show,
-        taskSearch,
-        taskTotal,
-        handleChangeInput,
-        handleCompleteTask,
-        handleDeleteTask,
-        handleAddTask,
-        handleClose,
-        handleShow,
-      }}
-    >
-      {props.children}
-    </TaskContext.Provider>
-  )
+  return {
+    tasks,
+    value,
+    show,
+    max,
+    now,
+    percent,
+    taskSearch,
+    taskTotal,
+    handleChangeInput,
+    handleCompleteTask,
+    handleDeleteTask,
+    handleAddTask,
+    handleClose,
+    handleShow,
+  }
 }
-
-export { TaskContext, TaskProvider }

@@ -1,9 +1,6 @@
-import { useContext } from 'react'
-import { TaskContext } from '../contexts'
 import { CustomInput } from '../components'
 
-const TaskSearch = () => {
-  const { value, handleChangeInput } = useContext(TaskContext)
+export const TaskSearch = ({ value, handleChangeInput }) => {
   return (
     <CustomInput
       type="text"
@@ -14,5 +11,3 @@ const TaskSearch = () => {
     />
   )
 }
-
-export { TaskSearch }
