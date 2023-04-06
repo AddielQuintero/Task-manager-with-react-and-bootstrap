@@ -9,6 +9,7 @@ import {
   TaskAdd,
   TaskModal,
   EmptyState,
+  ResultState,
 } from '../index'
 
 function App() {
@@ -40,9 +41,11 @@ function App() {
           </Col>
           <Col sm={12} className="overflow-hidden h-50">
             <TaskList
+              value={value}
               taskSearch={taskSearch}
               taskTotal={taskTotal}
               onEmpty={() => <EmptyState />}
+              onResult={() => <ResultState value={value} />}
               task={(task) => (
                 <TaskItem
                   key={task.id}
@@ -51,7 +54,16 @@ function App() {
                   onDelete={handleDeleteTask}
                 />
               )}
-            />
+            >
+              {/* {(task) => (
+                <TaskItem
+                  key={task.id}
+                  task={task}
+                  onComplete={handleCompleteTask}
+                  onDelete={handleDeleteTask}
+                />
+              )} */}
+            </TaskList>
           </Col>
           <Col
             sm={12}

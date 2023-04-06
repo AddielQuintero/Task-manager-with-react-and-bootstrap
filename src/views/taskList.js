@@ -1,8 +1,13 @@
 export const TaskList = (props) => {
+  console.log(props)
+
+  const render = props.children || props.task
+
   return (
     <ul className="task__ul">
-      {!props.taskTotal && props.onEmpty()}
-      {props.taskSearch.map(props.task)}
+      {!props.taskTotal && !props.value.length >= 1 && props.onEmpty()}
+      {!props.taskTotal && props.value.length >= 1 && props.onResult()}
+      {props.taskSearch.map(render)}
     </ul>
   )
 }

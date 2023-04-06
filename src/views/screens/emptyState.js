@@ -1,3 +1,3 @@
 export const EmptyState = () => {
-  return <li className="new__task">¡Add new task!</li>
+  return <li className="screen__state">¡Add new task!</li>
 }
