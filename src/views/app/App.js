@@ -39,17 +39,19 @@ function App() {
             <TaskSearch value={value} handleChangeInput={handleChangeInput} />
           </Col>
           <Col sm={12} className="overflow-hidden h-50">
-            <TaskList>
-              {!taskTotal && <EmptyState />}
-              {taskSearch.map((task) => (
+            <TaskList
+              taskSearch={taskSearch}
+              taskTotal={taskTotal}
+              onEmpty={() => <EmptyState />}
+              task={(task) => (
                 <TaskItem
                   key={task.id}
                   task={task}
                   onComplete={handleCompleteTask}
                   onDelete={handleDeleteTask}
                 />
-              ))}
-            </TaskList>
+              )}
+            />
           </Col>
           <Col
             sm={12}
