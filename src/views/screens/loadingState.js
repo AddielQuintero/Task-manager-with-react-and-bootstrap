@@ -1,6 +1,6 @@
 import ContentLoader from 'react-content-loader'
 
-const TaskLoading = props => {
+export const LoadingState = props => {
   return (
     <ContentLoader
       speed={2}
@@ -21,4 +21,3 @@ const TaskLoading = props => {
   )
 }
 
-export { TaskLoading }

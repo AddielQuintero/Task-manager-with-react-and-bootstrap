@@ -1,4 +1,4 @@
-const TaskError = () => {
+export const ErrorState = () => {
   return (
     <>
       <li className="new__task">we're sorry....</li>
@@ -6,5 +6,3 @@ const TaskError = () => {
     </>
   )
 }
-
-export { TaskError }

@@ -8,7 +8,7 @@ import {
   TaskItem,
   TaskAdd,
   TaskModal,
-  TaskEmpty,
+  EmptyState,
 } from '../index'
 
 function AppUi() {
@@ -27,7 +27,7 @@ function AppUi() {
           <Col sm={12} className="overflow-hidden h-50">
             <TaskList>
               {/* {loading && <TaskLoading />} */}
-              {!taskTotal && <TaskEmpty />}
+              {!taskTotal && <EmptyState />}
               {taskSearch.map((task) => (
                 <TaskItem
                   key={task.id}
