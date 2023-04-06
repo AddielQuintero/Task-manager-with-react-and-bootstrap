@@ -1,10 +1,10 @@
 import Form from 'react-bootstrap/Form'
 
-function CustomCheckbox(props) {
+export const CustomCheckbox = (props) => {
   return (
     <Form
       key={`key-${props.id}`}
-      className={`custom__checkbox ${props.className ?? ''}`}
+      className={props.className ?? ''}
     >
       <Form.Check
         type={props.type || 'checkbox'}
@@ -17,5 +17,3 @@ function CustomCheckbox(props) {
     </Form>
   )
 }
-
-export { CustomCheckbox }

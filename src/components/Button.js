@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button'
 
-function CustomButton(props) {
+export const CustomButton = (props) => {
   return (
     <Button
       type={props.type}
@@ -16,5 +16,3 @@ function CustomButton(props) {
     </Button>
   )
 }
-
-export { CustomButton }

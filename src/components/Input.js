@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 
-function CustomInput(props) {
+export const CustomInput = (props) => {
   return (
     <InputGroup>
       <Form.Control
@@ -14,4 +14,3 @@ function CustomInput(props) {
     </InputGroup>
   )
 }
-export { CustomInput }

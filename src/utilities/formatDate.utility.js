@@ -1,4 +1,4 @@
-function FormatDate() {
+export const FormatDate = () => {
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const options = {
     weekday: 'long',
@@ -17,5 +17,3 @@ function FormatDate() {
     </div>
   )
 }
-
-export { FormatDate }

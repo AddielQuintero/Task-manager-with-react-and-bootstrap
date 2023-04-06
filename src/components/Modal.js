@@ -1,6 +1,6 @@
 import Modal from 'react-bootstrap/Modal'
 
-const CustomModal = (props) => {
+export const CustomModal = (props) => {
   return (
     <Modal className={props.className ?? ''} show={props.show} onHide={props.onHide}>
       <Modal.Header closeButton>
@@ -13,5 +13,3 @@ const CustomModal = (props) => {
     </Modal>
   )
 }
-
-export { CustomModal }

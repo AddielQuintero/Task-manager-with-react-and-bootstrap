@@ -1,6 +1,6 @@
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
-function CustomProgressBar(props) {
+export const CustomProgressBar = (props) => {
   return (
     <>
       <ProgressBar
@@ -16,5 +16,3 @@ function CustomProgressBar(props) {
     </>
   )
 }
-
-export { CustomProgressBar }
