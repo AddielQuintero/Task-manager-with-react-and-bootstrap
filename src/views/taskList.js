@@ -1,6 +1,4 @@
 export const TaskList = (props) => {
-  console.log(props)
-
   const render = props.children || props.task
 
   return (

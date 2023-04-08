@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { useTask } from '../../hooks'
+import { useTask, useModal } from '../../hooks'
 import {
   TaskCounter,
   TaskSearch,
@@ -13,11 +13,11 @@ import {
 } from '../index'
 
 function App() {
+  const [showModal, handleShowModal, handleCloseModal] = useModal()
   const {
     taskSearch,
     taskTotal,
     value,
-    show,
     max,
     now,
     percent,
@@ -25,8 +25,6 @@ function App() {
     handleCompleteTask,
     handleDeleteTask,
     handleAddTask,
-    handleShow,
-    handleClose,
   } = useTask()
 
   return (
@@ -69,14 +67,14 @@ function App() {
             sm={12}
             className="position-absolute bottom-0 d-flex justify-content-end pt-4 pb-3"
           >
-            <TaskAdd handleShow={handleShow} />
+            <TaskAdd handleShow={handleShowModal} />
           </Col>
         </Row>
       </Container>
       <TaskModal
-        show={show}
+        show={showModal}
         handleAddTask={handleAddTask}
-        handleClose={handleClose}
+        handleClose={handleCloseModal}
       />
     </React.Fragment>
   )

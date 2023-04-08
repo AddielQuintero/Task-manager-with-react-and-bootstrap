@@ -62,15 +62,10 @@ export const useTask = () => {
   }
 
   const taskTotal = taskSearch.length
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
 
   return {
     tasks,
     value,
-    show,
     max,
     now,
     percent,
@@ -80,7 +75,5 @@ export const useTask = () => {
     handleCompleteTask,
     handleDeleteTask,
     handleAddTask,
-    handleClose,
-    handleShow,
   }
 }
