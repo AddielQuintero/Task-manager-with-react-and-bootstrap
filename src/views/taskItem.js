@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CustomCheckbox } from '../components'
 
 function TaskItem(props) {
@@ -9,6 +9,10 @@ function TaskItem(props) {
   const handleCheck = () => {
     setCheck(!check)
   }
+
+  useEffect(() => {
+    setCheck(completed)
+  }, [completed])
 
   return (
     <li className={`task__item ${check ? 'task__item--completed' : ''}`}>
