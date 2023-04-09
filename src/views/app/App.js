@@ -8,7 +8,9 @@ import {
   TaskItem,
   TaskAdd,
   TaskModal,
+  TaskChangeAlert,
   EmptyState,
+  LoadingState,
   ResultState,
 } from '../index'
 
@@ -21,6 +23,8 @@ function App() {
     max,
     now,
     percent,
+    loading,
+    sincronizedTask,
     handleChangeInput,
     handleCompleteTask,
     handleDeleteTask,
@@ -40,8 +44,10 @@ function App() {
           <Col sm={12} className="overflow-hidden h-50">
             <TaskList
               value={value}
+              loading={loading}
               taskSearch={taskSearch}
               taskTotal={taskTotal}
+              onLoading={() => <LoadingState />}
               onEmpty={() => <EmptyState />}
               onResult={() => <ResultState value={value} />}
               task={(task) => (
@@ -53,14 +59,7 @@ function App() {
                 />
               )}
             >
-              {/* {(task) => (
-                <TaskItem
-                  key={task.id}
-                  task={task}
-                  onComplete={handleCompleteTask}
-                  onDelete={handleDeleteTask}
-                />
-              )} */}
+              {/* {(task) => (<TaskItem key={task.id} task={task} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>)} */}
             </TaskList>
           </Col>
           <Col
@@ -76,6 +75,7 @@ function App() {
         handleAddTask={handleAddTask}
         handleClose={handleCloseModal}
       />
+      <TaskChangeAlert sincronized={sincronizedTask} />
     </React.Fragment>
   )
 }

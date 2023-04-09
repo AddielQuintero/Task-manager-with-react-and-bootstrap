@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useLocalStorage } from '.'
 
 export const useTask = () => {
-  const [tasks, updateTasks] = useLocalStorage('API_1', [])
+  const { item: tasks, saveItem: updateTasks, sincronizedTask, loading } = useLocalStorage('API_1', [])
 
   const [value, setValue] = useState('')
 
@@ -71,6 +71,8 @@ export const useTask = () => {
     percent,
     taskSearch,
     taskTotal,
+    loading,
+    sincronizedTask,
     handleChangeInput,
     handleCompleteTask,
     handleDeleteTask,
