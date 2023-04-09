@@ -8,12 +8,21 @@ import {
   TaskItem,
   TaskAdd,
   TaskModal,
+  TaskChangeAlert,
   EmptyState,
+  ResultState,
+  LoadingState,
 } from '../index'
 
 function AppUi() {
-  const { taskSearch, taskTotal, handleCompleteTask, handleDeleteTask } =
-    useContext(TaskContext)
+  const {
+    value,
+    taskSearch,
+    taskTotal,
+    handleCompleteTask,
+    handleDeleteTask,
+    loading,
+  } = useContext(TaskContext)
   return (
     <React.Fragment>
       <Container className="task__container py-5">
@@ -26,8 +35,9 @@ function AppUi() {
           </Col>
           <Col sm={12} className="overflow-hidden h-50">
             <TaskList>
-              {/* {loading && <TaskLoading />} */}
-              {!taskTotal && <EmptyState />}
+              {loading && <LoadingState />}
+              {!taskTotal && !loading && !value && <EmptyState />}
+              {value.length >= 1 && !taskTotal && <ResultState value={value} />}
               {taskSearch.map((task) => (
                 <TaskItem
                   key={task.id}
@@ -47,6 +57,7 @@ function AppUi() {
         </Row>
       </Container>
       <TaskModal />
+      <TaskChangeAlert />
     </React.Fragment>
   )
 }

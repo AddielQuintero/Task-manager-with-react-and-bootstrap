@@ -4,7 +4,10 @@ import { useLocalStorage } from '../hooks'
 const TaskContext = createContext()
 
 function TaskProvider(props) {
-  const [tasks, updateTasks] = useLocalStorage('API_1', [])
+  const [tasks, updateTasks, loading, sincronizedTask] = useLocalStorage(
+    'API_1',
+    []
+  )
 
   const [value, setValue] = useState('')
 
@@ -75,6 +78,8 @@ function TaskProvider(props) {
         show,
         taskSearch,
         taskTotal,
+        loading,
+        sincronizedTask,
         handleChangeInput,
         handleCompleteTask,
         handleDeleteTask,
