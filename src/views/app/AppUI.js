@@ -10,11 +10,13 @@ import {
   TaskModal,
   TaskChangeAlert,
   EmptyState,
+  ResultState,
   LoadingState,
 } from '../index'
 
 function AppUi() {
   const {
+    value,
     taskSearch,
     taskTotal,
     handleCompleteTask,
@@ -34,8 +36,8 @@ function AppUi() {
           <Col sm={12} className="overflow-hidden h-50">
             <TaskList>
               {loading && <LoadingState />}
-              {!taskTotal && <EmptyState />}
-              {}
+              {!taskTotal && !loading && !value && <EmptyState />}
+              {value.length >= 1 && !taskTotal && <ResultState value={value} />}
               {taskSearch.map((task) => (
                 <TaskItem
                   key={task.id}
