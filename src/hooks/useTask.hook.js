@@ -1,18 +1,16 @@
-import { useState } from 'react'
 import { useLocalStorage } from '.'
 
 export const useTask = () => {
-  const { item: tasks, saveItem: updateTasks, sincronizedTask, loading } = useLocalStorage('API_1', [])
-
-  const [value, setValue] = useState('')
+  const {
+    item: tasks,
+    saveItem: updateTasks,
+    sincronizedTask,
+    loading,
+  } = useLocalStorage('API_1', [])
 
   const max = tasks.length
   const now = tasks.filter((element) => element.completed).length
   let percent = Math.round((now / max) * 100) || 0
-
-  const handleChangeInput = (event) => {
-    setValue(event.target.value)
-  }
 
   const handleAddTask = (description) => {
     const taskAux = [...tasks]
@@ -52,30 +50,17 @@ export const useTask = () => {
     updateTasks(taskAux)
   }
 
-  let taskSearch = []
-  if (!value.length >= 1) {
-    taskSearch = tasks
-  } else {
-    taskSearch = tasks.filter((task) => {
-      return task.description.toLowerCase().includes(value.toLowerCase())
-    })
-  }
+  const state = { tasks, max, now, percent, loading }
 
-  const taskTotal = taskSearch.length
-
-  return {
-    tasks,
-    value,
-    max,
-    now,
-    percent,
-    taskSearch,
-    taskTotal,
-    loading,
+  const stateUpdaters = {
     sincronizedTask,
-    handleChangeInput,
     handleCompleteTask,
     handleDeleteTask,
     handleAddTask,
+  }
+  
+  return {
+    state,
+    stateUpdaters,
   }
 }
