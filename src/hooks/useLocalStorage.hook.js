@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useReducer } from 'react'
 import { API } from '../services'
 
 export const useLocalStorage = (itemName, initialValue) => {
   const api = API()
-  const [item, setItem] = useState(initialValue)
-  const [sincronized, setSincronized] = useState(true)
-  const [loading, setLoading] = useState(true)
+  const [state, dispatch] = useReducer(reducer, initialState({ initialValue }))
+  const { item, sincronized, loading } = state
 
   useEffect(() => {
     let localStorageItem = localStorage.getItem(itemName)
@@ -23,19 +22,42 @@ export const useLocalStorage = (itemName, initialValue) => {
       parseItem = JSON.parse(localStorageItem)
     }
 
-    setItem(parseItem)
-    setSincronized(true)
-    setLoading(false)
+    dispatch({ type: actionTypes.update_item, payload: parseItem })
+    dispatch({ type: actionTypes.sincronized })
+    dispatch({ type: actionTypes.loading })
   }, [sincronized])
 
   const sincronizedTask = () => {
-    setSincronized(false)
+    dispatch({ type: actionTypes.sincronizedTask })
   }
 
   const saveItem = (newItem) => {
     localStorage.setItem(itemName, JSON.stringify(newItem))
-    setItem(newItem)
+    dispatch({ type: actionTypes.update_item, payload: newItem })
   }
 
   return { item, saveItem, sincronizedTask, loading }
+}
+
+const initialState = ({ initialValue }) => ({
+  item: initialValue,
+  sincronized: true,
+  loading: true,
+})
+
+const actionTypes = {
+  update_item: 'UPDATE_ITEM',
+  sincronized: 'SINCRONIZED',
+  sincronizedTask: 'SINCRONIZED_TASK',
+  loading: 'LOADING',
+}
+
+const reducer = (state, action) => {
+  const actions = {
+    [actionTypes.update_item]: () => ({ ...state, item: action.payload }),
+    [actionTypes.sincronized]: () => ({ ...state, sincronized: true }),
+    [actionTypes.sincronizedTask]: () => ({ ...state, sincronized: false }),
+    [actionTypes.loading]: () => ({ ...state, loading: false }),
+  }
+  return actions[action.type]?.() || state
 }
