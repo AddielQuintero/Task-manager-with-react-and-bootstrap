@@ -1,5 +1,5 @@
 .btn-primary {
-  background-color: $green;
+  background-color: $indigo;
   border: none;
   color: $light;
 
@@ -10,8 +10,8 @@
   &:focus-visible,
   &:first-child:active {
     color: $light;
-    background-color: $deepGreen;
-    border-color: $deepGreen;
+    background-color: $deepIndigo;
+    border-color: $deepIndigo;
     box-shadow: none;
   }
 
@@ -19,8 +19,8 @@
   &.btn.disabled,
   fieldset:disabled {
     color: $light;
-    background-color: $lightGreen;
-    border-color: $lightGreen;
+    background-color: $deepIndigo;
+    border-color: $deepIndigo;
     box-shadow: none;
   }
 

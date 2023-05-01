@@ -19,7 +19,7 @@
       color: $midnight;
       border-bottom: none;
       .btn-close:focus {
-        box-shadow: 0 0 3px $green;
+        box-shadow: 0 0 3px $indigo;
       }
     }
   }
@@ -28,7 +28,7 @@
     border: none;
     &:focus,
     &:active {
-      box-shadow: 0 0 1px $green;
+      box-shadow: 0 0 1px $indigo;
       outline: 0;
     }
   }

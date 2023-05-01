@@ -4,7 +4,7 @@
   .form-check-input {
     border: none;
     &:checked {
-      background-color: $green !important;
+      background-color: $indigo !important;
       border: none;
     }
   }
@@ -17,6 +17,6 @@
     color: black;
     outline: 0;
     border: none;
-    box-shadow: 0 0 0 0.8px $green !important;
+    box-shadow: 0 0 0 0.8px $indigo !important;
   }
 }
