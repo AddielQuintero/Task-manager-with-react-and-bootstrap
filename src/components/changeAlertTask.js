@@ -1,9 +1,9 @@
 import React from 'react'
-import { CustomModal, CustomButton } from '../components'
+import { CustomModal, CustomButton } from './common'
 import { useStorageListener } from '../hooks'
 
-export const TaskChangeAlert = ({ sincronized }) => {
-  const { show, toggleShow, handleClose } = useStorageListener(sincronized)
+export const ChangeAlertTask = ({  synchronized }) => {
+  const { show, toggleShow, handleClose } = useStorageListener(synchronized)
 
   return (
     <CustomModal className="task__modal" show={show} onHide={handleClose}>

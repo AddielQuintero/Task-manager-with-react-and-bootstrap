@@ -1,4 +1,4 @@
-export const TaskList = (props) => {
+export const ListTask = (props) => {
   const render = props.children || props.task
   return (
     <ul className="task__ul">

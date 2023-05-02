@@ -1,0 +1,10 @@
+.error__state {
+  background-color: #ece9ff;
+  padding: 2rem;
+  text-align: center;
+  @media (min-width: 768px) {
+    margin: auto;
+    width: 23rem;
+    border-radius: 3px;
+  }
+}

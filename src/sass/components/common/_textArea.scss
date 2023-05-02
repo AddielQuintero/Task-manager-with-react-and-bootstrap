@@ -1,0 +1,17 @@
+.custom__textArea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #f3f6fc;
+  &:focus,
+  &:active {
+    box-shadow: 0 0 1px $indigo;
+    outline: 0;
+  }
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

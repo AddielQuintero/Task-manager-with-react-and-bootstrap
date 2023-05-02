@@ -1,8 +1,8 @@
 import { Row, Col } from 'react-bootstrap'
-import { CustomProgressBar } from '../components'
+import { CustomProgressBar } from './common'
 import { FormatDate } from '../utilities'
 
-export const TaskCounter = ({ max, now, percent }) => {
+export const CounterTask = ({ max, now, percent }) => {
   return (
     <Row className="task__counter w-100 mx-0 mb-2">
       <Col xs={6} className="px-0">

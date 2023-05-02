@@ -1,31 +1,25 @@
 import { useLocalStorage } from '.'
 
 export const useTask = () => {
-  const {
-    item: tasks,
-    saveItem: updateTasks,
-    sincronizedTask,
-    loading,
-  } = useLocalStorage('API_1', [])
+  const { item: tasks, saveItem: updateTasks, synchronizedTask, loading } = useLocalStorage('API_1', [])
 
   const max = tasks.length
   const now = tasks.filter((element) => element.completed).length
   let percent = Math.round((now / max) * 100) || 0
 
+  const generateID = (item) => {
+    let listID = item.map((item) => item.id)
+    let id = !listID.length ? 0 : Math.max(...listID)
+    return id + 1
+  }
+
   const handleAddTask = (description) => {
     const taskAux = [...tasks]
     const trimDescription = description.trim()
-    function generateID(item) {
-      let id
-      do {
-        id = Math.floor(Math.random() * 1000000)
-      } while (item.includes(id))
-      return id
-    }
 
     let id = generateID(taskAux)
     if (!!trimDescription) {
-      taskAux.unshift({ id: id, description, completed: false })
+      taskAux.unshift({ id, description, completed: false })
       updateTasks(taskAux)
     }
   }
@@ -35,6 +29,16 @@ export const useTask = () => {
     taskAux.find((task) => {
       if (task.id === id) {
         task.completed = !task.completed
+      }
+    })
+    updateTasks(taskAux)
+  }
+
+  const handleUpdateTask = ({ id, description }) => {
+    const taskAux = [...tasks]
+    taskAux.find((task) => {
+      if (task.id === id) {
+        task.description = description
       }
     })
     updateTasks(taskAux)
@@ -53,12 +57,13 @@ export const useTask = () => {
   const state = { tasks, max, now, percent, loading }
 
   const stateUpdaters = {
-    sincronizedTask,
+    synchronizedTask,
     handleCompleteTask,
+    handleUpdateTask,
     handleDeleteTask,
     handleAddTask,
   }
-  
+
   return {
     state,
     stateUpdaters,

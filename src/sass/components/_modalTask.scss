@@ -1,6 +1,4 @@
 .task__modal {
-  padding-left: 0 !important;
-
   .modal-dialog {
     display: flex;
     justify-content: center;
@@ -21,15 +19,6 @@
       .btn-close:focus {
         box-shadow: 0 0 3px $indigo;
       }
-    }
-  }
-
-  .input__add-task {
-    border: none;
-    &:focus,
-    &:active {
-      box-shadow: 0 0 1px $indigo;
-      outline: 0;
     }
   }
 

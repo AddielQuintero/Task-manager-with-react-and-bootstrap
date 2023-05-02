@@ -1,0 +1,12 @@
+.new__task {
+  background-color: #ece9ff;
+  @media (min-width: 768px) {
+    margin: auto;
+    width: 23rem;
+    border-radius: 3px;
+  }
+
+  .button__new-task {
+    width: 71px;
+  }
+}

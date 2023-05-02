@@ -1,6 +1,6 @@
-import { CustomInput } from '../components'
+import { CustomInput } from './common'
 
-export const TaskSearch = ({ value, handleChangeInput }) => {
+export const SearchTask = ({ value, handleChangeInput }) => {
   return (
     <CustomInput
       type="text"

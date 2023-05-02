@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const useStorageListener = (sincronized) => {
+export const useStorageListener = (synchronized) => {
   const [storageChange, setStorageChange] = useState(false)
 
   window.addEventListener('storage', (change) => {
@@ -11,7 +11,7 @@ export const useStorageListener = (sincronized) => {
   })
 
   const toggleShow = () => {
-    sincronized()
+    synchronized()
     setStorageChange(false)
   }
 

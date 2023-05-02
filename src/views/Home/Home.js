@@ -1,38 +1,29 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTask, useModal, useSearch } from '../../hooks'
-import {
-  TaskCounter,
-  TaskSearch,
-  TaskList,
-  TaskItem,
-  TaskAdd,
-  TaskModal,
-  TaskChangeAlert,
-  EmptyState,
-  LoadingState,
-  ResultState,
-} from '../index'
+import { EmptyState, LoadingState, ResultState } from '../Screens'
+import { CounterTask, SearchTask, ListTask, ItemTask, AddTask, ChangeAlertTask } from '../../components'
+import { useNavigate } from 'react-router-dom'
 
-function App() {
-  const [showModal, handleShowModal, handleCloseModal] = useModal()
+function Home() {
   const { state, stateUpdaters } = useTask()
   const { tasks, max, now, percent, loading } = state
-  const { sincronizedTask, handleCompleteTask, handleDeleteTask, handleAddTask } = stateUpdaters
+  const { synchronizedTask, handleCompleteTask, handleDeleteTask, handleUpdateTask } = stateUpdaters
   const { value, taskSearch, taskTotal, handleChangeInput } = useSearch(tasks)
+  const navigate = useNavigate()
 
   return (
     <React.Fragment>
       <Container className="task__container py-5">
         <Row className="task__row m-auto py-3 align-content-start">
           <Col sm={12} className="d-flex align-items-center">
-            <TaskCounter max={max} now={now} percent={percent} />
+            <CounterTask max={max} now={now} percent={percent} />
           </Col>
           <Col sm={12} className="py-2">
-            <TaskSearch value={value} handleChangeInput={handleChangeInput} />
+            <SearchTask value={value} handleChangeInput={handleChangeInput} />
           </Col>
           <Col sm={12} className="overflow-hidden h-50">
-            <TaskList
+            <ListTask
               value={value}
               loading={loading}
               taskSearch={taskSearch}
@@ -41,7 +32,7 @@ function App() {
               onEmpty={() => <EmptyState />}
               onResult={() => <ResultState value={value} />}
               task={(task) => (
-                <TaskItem
+                <ItemTask
                   key={task.id}
                   task={task}
                   onComplete={handleCompleteTask}
@@ -50,24 +41,16 @@ function App() {
               )}
             >
               {/* {(task) => (<TaskItem key={task.id} task={task} onComplete={handleCompleteTask} onDelete={handleDeleteTask}/>)} */}
-            </TaskList>
+            </ListTask>
           </Col>
-          <Col
-            sm={12}
-            className="position-absolute bottom-0 d-flex justify-content-end pt-4 pb-3"
-          >
-            <TaskAdd handleShow={handleShowModal} />
+          <Col sm={12} className="position-absolute bottom-0 d-flex justify-content-end pt-4 pb-3">
+            <AddTask handleNavigate={() => navigate('/new')} />
           </Col>
         </Row>
       </Container>
-      <TaskModal
-        show={showModal}
-        handleAddTask={handleAddTask}
-        handleClose={handleCloseModal}
-      />
-      <TaskChangeAlert sincronized={sincronizedTask} />
+      <ChangeAlertTask synchronized={synchronizedTask} />
     </React.Fragment>
   )
 }
 
-export { App }
+export { Home }
